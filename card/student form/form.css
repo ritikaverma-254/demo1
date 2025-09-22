@@ -1,0 +1,142 @@
+ html 
+    {
+    font-family: sans-serif;
+    }
+
+    h1
+    {
+    width: 300px;
+    max-width: 750px;
+    min-width: 480px;
+    margin: 0 auto;
+    padding-top: 1%;
+    padding-left: 10%;
+    }
+    nav 
+    {
+            width: 800px; 
+            border: 2px solid #333;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 30px auto; 
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
+            
+    }
+    .left 
+    {
+        font-size: large;
+        font-weight: bold;
+        margin: auto;
+    }
+    header
+    {
+        margin: auto;
+        padding-left: 8%;
+    }
+    .firstname
+    {
+        padding: 1.6%;
+    }
+    .firstname input
+    {
+        width: 70%;
+    }
+    .lastname
+    {
+        padding: 1.6%;
+        padding-top: 0%;
+    }
+    .lastname input
+    {
+        width: 70%;
+    }
+    .mail
+    {
+        padding: 1.6%;
+    }
+    .mail input
+    {
+        width: 68%;
+    }
+    .phoneDate
+    {
+        display:flex;
+        /* justify-content: first baseline; */
+        padding: 1.6%;
+        gap: 25%;
+        padding-top: 0%;
+        /* background-color: blue; */
+    }
+    .phoneNo input
+    {
+        width: 65%;
+    }
+    .date input
+    {
+        width: 55%;
+    }
+    .id
+    {
+        padding: 1.6%;
+        padding-top: 0%;
+    }
+    .id input
+    {
+        width: 72%;
+    }
+    .gender
+    {
+        padding: 1.6%;
+    }
+    .email
+    {
+        padding: 1.6%;
+    }
+    .email input{
+        width: 70%;
+    }
+    .locate{
+        padding: 1.6%;
+        padding-top: 2%;
+    }
+    .countr{
+        padding-left: 2.5%;
+
+    }
+    .stat{
+        padding-left: 3%;
+    }
+    .cite{
+        padding-left: 3%;
+    }
+    #loc{
+        width: 22%;
+    }
+    #stat{
+        width: 22%;
+    }
+    #cite{
+        width: 22%;
+    }
+    .sub{
+        padding: 2.5%;
+    }
+    .formerror{
+        color: red;
+    }
+    .box{
+        padding-top: 2%;
+    }
+    #button2{
+        padding: 1%;
+        background-color: red;
+        font-size: larger;
+        border-radius: 10px; 
+    }
+    .street{
+        padding-top: 2%;
+        padding-left: 1.5%;
+    }
+    .street input{
+        width: 70%;
+    }

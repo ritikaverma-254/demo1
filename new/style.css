@@ -1,0 +1,19 @@
+h1 {
+    color:chocolate;
+    background-color: blanchedalmond;
+}
+
+body {
+    background-color: bisque;
+    color: rgb(47, 54, 255);
+}
+
+button{
+    background-color: brown;
+    color: red
+}
+
+div{
+     background-color: blanchedalmond;
+     padding: 3rem ;
+}

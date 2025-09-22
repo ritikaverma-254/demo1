@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Data Sheet</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+        table, th, td {
+         border: 1px solid black;
+        border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+  
+    <h1 id ="myclass">Table Listing</h1>
+    <table id = "itstable">
+          <tbody id="myTableBody">
+    <tr>
+      <td class="data-cell">Value 1A</td>
+      <td class="data-cell">Value 1B</td>
+      <td><button class="edit-btn">Edit</button></td>
+    </tr>
+    <tr>
+      <td class="data-cell">Value 2A</td>
+      <td class="data-cell">Value 2B</td>
+      <td><button class="edit-btn">Edit</button></td>
+    </tr>
+  </tbody>
+    
+
+    </table>> 
+
+    
+</body>
+<script>
+  const div = document.createElement('div')
+  console.log(div);
+  div.classname = 'main'
+  div.id = Math.round(Math.random()+2)
+  div.setAttribute("title","random Name ")
+  // div.innerText = "just go for it "
+  const addtext = document.createTextNode("Code To Do")
+  div.appendChild(addtext)
+  document.body.appendChild(div)
+
+
+
+
+
+  </script>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Data Sheet</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+        table, th, td {
+         border: 1px solid black;
+        border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+    <script>
+        const table = document.createElement('table')
+        const h1 = document.createElement('h1')
+        h1.id = 121;
+        table.className = "main"
+        const innertext = document.createTextNode("Data Sheet")
+        h1.appendChild(innertext)
+        document.body.appendChild(h1)
+        document.body.appendChild(table)
+        const tbody = document.createElement('tbody')
+        tbody.id = 11;
+        tbody.setAttribute("title","just give me that")
+        table.appendChild(tbody)
+        const tr = document.createElement('tr')
+        tbody.appendChild(tr)
+        const th = document.createElement('th')
+        th.innerText = "name"
+        tr.appendChild(th)
+        const th1 = document.createElement('th')
+        th1.innerText = "class"
+        // th1.innerText+="xyz"
+        tr.appendChild(th1)
+        const th2 = document.createElement('th')
+        th2.innerText = "section"
+        tr.appendChild(th2)
+        const th3 = document.createElement('th')
+        th3.innerText = "Action"
+        tr.appendChild(th3)
+        const tr1 = document.createElement('tr')
+        tbody.appendChild(tr1)
+        const td = document.createElement('td')
+        td.innerText = "Aman"
+        tr1.appendChild(td)
+        const td1 = document.createElement('td')
+        td1.innerText = "7TH"
+        tr1.appendChild(td1)
+        const td2 = document.createElement('td')
+        td2.innerText = " A"
+        tr1.appendChild(td2)
+        const td3 = document.createElement('td')
+        tr1.appendChild(td3)
+        const button =document.createElement("button")
+        button.innerText = "Edit"
+        td3.appendChild(button)
+        button.classname="edit-btn"  
+        const tr2 = document.createElement('tr')
+        tbody.appendChild(tr2)
+        const td4 = document.createElement('td')
+        td4.innerText = "NAman"
+        tr2.appendChild(td4)
+        const td5 = document.createElement('td')
+        td5.innerText = "8TH"
+        tr2.appendChild(td5)
+        const td6 = document.createElement('td')
+        td6.innerText = " B"
+        tr2.appendChild(td6)
+        const td7 = document.createElement('td')
+        tr2.appendChild(td7)
+        const button1 =document.createElement("button")
+        button1.innerText = "Edit"
+        td7.appendChild(button1)
+        button1.classname="edit-btn"     
+        
+    </script>
+    <body>
+        <html>

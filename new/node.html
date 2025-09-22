@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Country → State → City (Dynamic)</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; padding: 24px; background:#f7f7fb; color:#222; }
+    .form-row { margin: 12px 0; }
+    label { display:block; margin-bottom:6px; font-weight:600; }
+    select { width: 100%; max-width:420px; padding:8px; border-radius:6px; border:1px solid #ccc; background:#fff; }
+    .hint { color:#666; font-size:0.9rem; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <h1>Choose Location</h1>
+
+  <div class="locate">
+    <label for="country">Country</label>
+    <select id="country" aria-label="Country"></select>
+  </div>
+
+  <div class="loacte">
+    <label for="state">State / Province</label>
+    <select id="state" aria-label="State / Province" disabled></select>
+  </div>
+
+  <div class="locate">
+    <label for="city">City</label>
+    <select id="city" aria-label="City" disabled></select>
+  </div>
+  <script>
+    // Sample hierarchical data. Replace or extend as needed.
+    const data = {
+      "India": {
+        "Maharashtra": ["Mumbai", "Pune", "Nagpur"],
+        "Karnataka": ["Bengaluru", "Mysore", "Mangalore"],
+        "Delhi": ["New Delhi"]
+      },
+      "United States": {
+        "California": ["Los Angeles", "San Francisco", "San Diego"],
+        "Texas": ["Houston", "Dallas", "Austin"],
+        "New York": ["New York City", "Buffalo", "Rochester"]
+      },
+      "Canada": {
+        "Ontario": ["Toronto", "Ottawa", "Kingston"],
+        "British Columbia": ["Vancouver", "Victoria"],
+        "Quebec": ["Montreal", "Quebec City"]
+      }
+    };
+
+    // DOM refs
+    const countrySelect = document.getElementById('country');
+    const stateSelect   = document.getElementById('state');
+    const citySelect    = document.getElementById('city');
+
+    // Utility: empty a select and optionally add a placeholder
+    function resetSelect(selectEl, placeholderText = 'Select...') {
+      selectEl.innerHTML = '';
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = placeholderText;
+      opt.disabled = true;
+      opt.selected = true;
+      selectEl.appendChild(opt);
+    }
+
+    // Populate countries
+    function populateCountries() {
+      resetSelect(countrySelect, 'Select country');
+      const countries = Object.keys(data).sort();
+      countries.forEach(country => {
+        const o = document.createElement('option');
+        o.value = country;
+        o.textContent = country;
+        countrySelect.appendChild(o);
+      });
+      countrySelect.disabled = false;
+    }
+
+    // Populate states for a given country
+    function populateStates(country) {
+      resetSelect(stateSelect, 'Select state / province');
+      resetSelect(citySelect, 'Select city');
+      citySelect.disabled = true;
+
+      if (!country || !data[country]) {
+        stateSelect.disabled = true;
+        return;
+      }
+
+      const states = Object.keys(data[country]).sort();
+      if (states.length === 0) {
+        stateSelect.disabled = true;
+        return;
+      }
+
+      states.forEach(st => {
+        const o = document.createElement('option');
+        o.value = st;
+        o.textContent = st;
+        stateSelect.appendChild(o);
+      });
+      stateSelect.disabled = false;
+    }
+
+    // Populate cities for a given country & state
+    function populateCities(country, state) {
+      resetSelect(citySelect, 'Select city');
+
+      if (!country || !state || !data[country] || !data[country][state]) {
+        citySelect.disabled = true;
+        return;
+      }
+
+      const cities = data[country][state].slice().sort();
+      if (cities.length === 0) {
+        citySelect.disabled = true;
+        return;
+      }
+
+      cities.forEach(city => {
+        const o = document.createElement('option');
+        o.value = city;
+        o.textContent = city;
+        citySelect.appendChild(o);
+      });
+      citySelect.disabled = false;
+    }
+
+    // Event listeners
+    countrySelect.addEventListener('change', (e) => {
+      const country = e.target.value;
+      populateStates(country);
+    });
+
+    stateSelect.addEventListener('change', (e) => {
+      const state = e.target.value;
+      const country = countrySelect.value;
+      populateCities(country, state);
+    });
+
+    // Initialize
+    (function init() {
+      resetSelect(countrySelect, 'Loading countries...');
+      resetSelect(stateSelect, 'Select state / province');
+      resetSelect(citySelect, 'Select city');
+      countrySelect.disabled = true;
+      stateSelect.disabled = true;
+      citySelect.disabled = true;
+
+      // If your data comes from a remote JSON/API, replace the next line with fetch() and then call populateCountries()
+      // Example:
+      // fetch('/path/to/locations.json')
+      //   .then(r => r.json())
+      //   .then(json => { Object.assign(data, json); populateCountries(); })
+      //   .catch(err => { console.error(err); alert('Failed to load location data.'); });
+
+      // For local data:
+      populateCountries();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculater</title>
+</head>
+<style>
+    html {
+  font-family: sans-serif;
+}
+body {
+  width: 300px;
+  max-width: 750px;
+  min-width: 480px;
+  margin: 0 auto;
+  background-color: #212121;
+}
+.h1{
+     font-size: 55px;
+  /* margin-left: 90px; */
+  margin-top: 120px;
+  color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+    font-family:'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    
+}
+.Field{
+  color: #000;
+  width: 250px;
+  height: 50px;
+  font-size: 30px;
+  border-style: none;
+  margin-top: 25px;
+  margin-left: 110px;
+  border: 5px solid #6c6d6d;
+  text-align: center;
+}
+
+.buttons {
+  display: grid;
+  margin: 7ch;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+nav{
+            
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 35px;
+    height: 80px;
+    background-color:  blue;
+    }
+
+
+button {
+  /* height: 50px; */
+  font-size: 3rem;
+  /* border: none; */
+  border-radius: 8px;
+  background: #007bff;
+  color: black;
+  cursor: pointer;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+</style>
+<body>
+   <nav> <h1 class ="h1">CaLcUlAtEr</h1>
+    <input placeholder="   digits" type="text" id="result" class="Field">
+    <header>
+        <div class = "firstSection">
+        <div class="buttons">
+      <button onclick="clearResult()">C</button>
+      <button onclick="appendValue('/')">/</button>
+      <button onclick="appendValue('*')">*</button>
+      <button onclick="appendValue('-')">-</button>
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('+')">+</button>
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="calculateResult()">=</button>
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('0')">0</button>
+    </div>
+        </div>
+    </nav>
+</header>     
+</body>
+<script>
+  let walue = document.getElementById("result");
+
+function appendValue(value) {
+  walue.value = walue.value + value;
+}
+
+function clearResult() {
+  walue.value = '';
+}
+
+function calculateResult() {
+  try {
+    const result = eval(walue.value);
+    walue.value = result;
+  } catch (error)
+   {
+    alert('Calculation Canot be DONE ');
+  }
+}
+</script>
+</html> 
+
